@@ -101,7 +101,7 @@ int main(){
           getline(cin,email);
           if (email.size()>0) entry.email = email;
 			
-			    cout << "Enter a new timezone ("+entry.timezone+"): ";
+			  cout << "Enter a new timezone ("+entry.timezone+"): ";
         	getline(cin,timezone);
         	if (timezone.size()>0) entry.timezone = timezone;
 			
