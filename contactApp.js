@@ -1,7 +1,7 @@
 // JavaScript for Contact Application Demo Program
 // Jim Skon, Kenyon College, 2022
 var contactList = [];
-const baseUrl = 'http://3.134.78.249:5004';
+const baseUrl = 'http://44.202.89.194:5004';
 
 /* Set up events */
 $(document).ready(function() {
