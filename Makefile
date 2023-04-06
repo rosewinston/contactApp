@@ -10,7 +10,7 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: testcontact contactApp PutHTML 
+all:testcontact contactApp PutHTML 
 
 contactEntry.o: contactEntry.cpp contactEntry.h
 	$(CC) -c $(CFLAGS) contactEntry.cpp

@@ -54,23 +54,27 @@ int main(){
         for (int i = 0; i<results.size(); i++) {
 			cout << results[i].text() << endl;
         }
-      } else if (o=="4") {
+      } else if (o=="6") {
 
         cout <<"Enter a first name to add: ";
-        string first,last,phone,type;
+        string first,last,phone,email,timezone,type;
         getline(cin,first);
         cout << "Enter a last name to add: ";
         getline(cin,last);
         cout << "Enter a phone number: ";
         getline(cin,phone);
+		cout << "Enter an email: ";
+        getline(cin,email);
+		cout << "Enter a timezone: ";
+        getline(cin,timezone);
         cout << "lastly, end a type: ";
-        getline(cin,type);;
+        getline(cin,type);
 
-        ctdb.addEntry(first,last,phone,type);
+        ctdb.addEntry(first,last,phone,email,timezone,type);
         cout << "Entry added" << endl;
 
-      } else if (o=="5") {
-        string first,last,phone,type, IDnum;
+      } else if (o=="7") {
+        string first,last,phone,email,timezone,type, IDnum;
         cout << "Leave blank to keep same."  << endl;
         cout << "Enter an ID number to edit: ";
         getline(cin,IDnum);
@@ -93,14 +97,22 @@ int main(){
         	getline(cin,phone);
         	if (phone.size()>0) entry.phone = phone;
         	
+			cout << "Enter a new email ("+entry.email+"): ";
+        	getline(cin,email);
+        	if (email.size()>0) entry.email = email;
+			
+			cout << "Enter a new timezone ("+entry.timezone+"): ";
+        	getline(cin,timezone);
+        	if (timezone.size()>0) entry.timezone = timezone;
+			
         	cout << "Enter a new type("+entry.type+"): ";
         	getline(cin,type);
         	if (type.size()>0) entry.type = type;
         	
-        	ctdb.editEntry(entry.ID,entry.first,entry.last,entry.phone,entry.type);
+        	ctdb.editEntry(entry.ID,entry.first,entry.last,entry.phone,entry.email,entry.timezone,entry.type);
         	cout << "Done!" << endl;
         }
-      } else if (o=="6") {
+      } else if (o=="7") {
 
         string IDnum;
         cout << "Enter an ID number to delete: ";

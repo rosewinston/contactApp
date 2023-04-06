@@ -1,7 +1,7 @@
 // JavaScript for Contact Application Demo Program
 // Jim Skon, Kenyon College, 2022
 var contactList = [];
-const baseUrl = 'http://3.134.78.249:5004';
+const baseUrl = 'http://44.202.89.194:5004';
 
 /* Set up events */
 $(document).ready(function() {
@@ -25,10 +25,10 @@ $(document).ready(function() {
 // Build output table from comma delimited list
 function formatMatches(json) {
 
-    var result = '<table class="table table-success table-striped""><tr><th>First</th><th>Last</th><th>Phone</th><th>Type</th><th>Action</th><tr>';
+    var result = '<table class="table table-success table-striped""><tr><th>First</th><th>Last</th><th>Phone</th><th>Email</th><th>Timezone</th><th>Type</th><th>Action</th><tr>';
     json.forEach(function(entry, i) {
         result += "<tr><td class='first'>" + entry['first'] + "</td><td class='last'>" + entry['last'];
-        result += "</td><td class='phone'>" + entry['phone'] + "</td><td class='type'>" + entry['type'] + "</td>";
+        result += "</td><td class='phone'>" + entry['phone'] + "</td><td class='email'>" + entry['email'] + "</td><td class='timezone'>" + entry['timezone'] + "</td><td class='type'>" + entry['type'] + "</td>";
         result += "<td><button type='button' class='btn btn-primary btn-sm edit' data-bs-toggle='modal' data-bs-target='#editContact' ";
         result += "onclick=\"editContact(" + i + ")\">Edit</button> ";
         result += "<button type='button' class='btn btn-primary btn-sm ' onclick=\"deleteContact("+ entry['ID'] +")\">Delete</button></td></tr>";
@@ -70,6 +70,9 @@ function processAdd(results) {
     document.getElementById("addfirst").value = "";
     document.getElementById("addlast").value = "";
     document.getElementById("addphone").value = "";
+    document.getElementById("addemail").value = "";
+    document.getElementById("addtimezone").value = "";
+
 
     findMatches(" ");
 
@@ -79,7 +82,7 @@ function addContact() {
     console.log("Attempting to add an entry");
     console.log("Firstname:" + $('#addfirst').val());
     $('#searchresults').empty();
-    fetch(baseUrl + '/contact/add/' + $('#addfirst').val() + "/" + $('#addlast').val() + "/" + $('#addphone').val() + "/" + $('#addtype').text(), {
+    fetch(baseUrl + '/contact/add/' + $('#addfirst').val() + "/" + $('#addlast').val() + "/" + $('#addphone').val() + "/" + $('#addemail').val() + "/" + $('#addtimezone').val() + "/" + $('#addtype').text(), {
             method: 'get'
         })
         .then(response => response.json())
@@ -101,6 +104,8 @@ function editContact(row) {
 	document.getElementById("editfirst").value = contactList[row]["first"];
 	document.getElementById("editlast").value = contactList[row]["last"];
 	document.getElementById("editphone").value = contactList[row]["phone"];
+	document.getElementById("editemail").value = contactList[row]["email"];
+	document.getElementById("edittimezone").value = contactList[row]["timezone"];
 	document.getElementById("edittype").innerText = contactList[row]["type"];
 	
 	//Save ID in modal
@@ -119,7 +124,7 @@ function updateContact() {
     console.log("Attempting to edit an entry:"+id); 
 
     fetch(baseUrl + '/contact/update/' + id + '/' + document.getElementById("editfirst").value 
-    		+ '/' + document.getElementById("editlast").value + '/' + document.getElementById("editphone").value + '/' + document.getElementById("edittype").innerText, {
+    		+ '/' + document.getElementById("editlast").value + '/' + document.getElementById("editphone").value + '/' + document.getElementById("editemail").value + '/' + document.getElementById("edittimezone").value + '/' + document.getElementById("edittype").innerText, {
                 method: 'get'
             })
         .then(alert("Record for " + document.getElementById("editfirst").value + ' ' + document.getElementById("editlast").value + " updated"))
