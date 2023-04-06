@@ -164,7 +164,7 @@ void contactDB::addEntry(string first,string last,string phone,string email,stri
      	 type="Other";
   	}
   	
-  	stmnt->executeQuery("INSERT INTO contacts(First,Last,Phone,Type) VALUES ('"+first+"','"+last+"','"+phone+"','"+email+"','"+timezone+"','"+type+"')");
+  	stmnt->executeQuery("INSERT INTO contacts(First,Last,Phone,Email,Timezone,Type) VALUES ('"+first+"','"+last+"','"+phone+"','"+email+"','"+timezone+"','"+type+"')");
 }
 
 contactEntry contactDB::fetchEntry(string id){

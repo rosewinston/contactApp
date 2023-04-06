@@ -15,8 +15,8 @@ public:
      string first;
      string last;
      string phone;
-	 string email;
-	 string timezone;
+	string email;
+	string timezone;
      string type;
      string ID;
 

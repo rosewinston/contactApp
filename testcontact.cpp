@@ -63,9 +63,9 @@ int main(){
         getline(cin,last);
         cout << "Enter a phone number: ";
         getline(cin,phone);
-		cout << "Enter an email: ";
+		    cout << "Enter an email: ";
         getline(cin,email);
-		cout << "Enter a timezone: ";
+		    cout << "Enter a timezone: ";
         getline(cin,timezone);
         cout << "lastly, end a type: ";
         getline(cin,type);
@@ -97,11 +97,11 @@ int main(){
         	getline(cin,phone);
         	if (phone.size()>0) entry.phone = phone;
         	
-			cout << "Enter a new email ("+entry.email+"): ";
-        	getline(cin,email);
-        	if (email.size()>0) entry.email = email;
+          cout << "Enter a new email ("+entry.email+"): ";
+          getline(cin,email);
+          if (email.size()>0) entry.email = email;
 			
-			cout << "Enter a new timezone ("+entry.timezone+"): ";
+			    cout << "Enter a new timezone ("+entry.timezone+"): ";
         	getline(cin,timezone);
         	if (timezone.size()>0) entry.timezone = timezone;
 			
