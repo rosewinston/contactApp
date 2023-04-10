@@ -132,7 +132,7 @@ function updateContact() {
             {
                 alert("Edit Error: something went wrong:" + error);
             }
-        })
+        });
         
     findMatches(" ");
 
@@ -150,7 +150,7 @@ function deleteContact(id) {
             {
                 alert("Delete Error: Something went wrong:" + error);
             }
-        })
+        });
      findMatches(" ");
 
 }
